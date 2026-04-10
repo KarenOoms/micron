@@ -50,12 +50,17 @@
 
     %local _mockshell _strict_param _n_test _n_ref _n_total _totvar_test _totvar_ref _totvar_all
            _dsid _rc _has_display_id _has_parameter_cd _has_parameter _has_avisit _has_avisitn
-           _has_avisit_nonmiss _has_avisitn_nonmiss;
+           _has_avisit_nonmiss _has_avisitn_nonmiss _descw _descd _descleadfmt;
     %let _mockshell=%upcase(%superq(mockshell));
     %let _strict_param=%upcase(%superq(strict_param));
     %let _n_test=%superq(n_test);
     %let _n_ref=%superq(n_ref);
     %let _n_total=%superq(n_total);
+    %let _descw=%scan(%superq(desc_statfmt),1,.);
+    %let _descd=%scan(%superq(desc_statfmt),2,.);
+    %if %sysevalf(%superq(_descw)=,boolean) %then %let _descw=8;
+    %if %sysevalf(%superq(_descd)=,boolean) %then %let _descd=1;
+    %let _descleadfmt=%sysfunc(max(1,%eval(&_descw-2))).&_descd;
 
     %if %superq(arsds)= or not %sysfunc(exist(&arsds)) %then %do;
         %put ERROR: ars_make_ancova_page2 - ARSDS is required and must exist.;
@@ -403,45 +408,45 @@
         %if %upcase(%superq(include_desc_stats))=Y %then %do;
             page=1; order=1; index=1; col0="%superq(desc_base_label)"; col1=''; col2=''; col3=''; output;
             page=1; order=1; index=2; col0='   n';
-            col1=strip(put(coalesce(r_base_n,0),&desc_nfmt)); col2=strip(put(coalesce(t_base_n,0),&desc_nfmt)); col3=strip(put(coalesce(a_base_n,0),&desc_nfmt)); output;
+            col1=cats(put(coalesce(t_base_n,0),&_descleadfmt),repeat(' ',2)); col2=cats(put(coalesce(r_base_n,0),&_descleadfmt),repeat(' ',2)); col3=cats(put(coalesce(a_base_n,0),&_descleadfmt),repeat(' ',2)); output;
             page=1; order=1; index=3; col0='   Mean (SD)';
-            col1=cats(strip(put(coalesce(r_base_mean,0),&desc_statfmt)),' (',strip(put(coalesce(r_base_sd,0),&desc_statfmt)),')');
-            col2=cats(strip(put(coalesce(t_base_mean,0),&desc_statfmt)),' (',strip(put(coalesce(t_base_sd,0),&desc_statfmt)),')');
-            col3=cats(strip(put(coalesce(a_base_mean,0),&desc_statfmt)),' (',strip(put(coalesce(a_base_sd,0),&desc_statfmt)),')'); output;
+            col1=cats(put(coalesce(t_base_mean,0),&desc_statfmt),' (',strip(put(coalesce(t_base_sd,0),&desc_statfmt)),')');
+            col2=cats(put(coalesce(r_base_mean,0),&desc_statfmt),' (',strip(put(coalesce(r_base_sd,0),&desc_statfmt)),')');
+            col3=cats(put(coalesce(a_base_mean,0),&desc_statfmt),' (',strip(put(coalesce(a_base_sd,0),&desc_statfmt)),')'); output;
             page=1; order=1; index=4; col0='   Median';
-            col1=strip(put(coalesce(r_base_median,0),&desc_statfmt)); col2=strip(put(coalesce(t_base_median,0),&desc_statfmt)); col3=strip(put(coalesce(a_base_median,0),&desc_statfmt)); output;
+            col1=put(coalesce(t_base_median,0),&desc_statfmt); col2=put(coalesce(r_base_median,0),&desc_statfmt); col3=put(coalesce(a_base_median,0),&desc_statfmt); output;
             page=1; order=1; index=5; col0='   Min, Max';
-            col1=cats(strip(put(coalesce(r_base_min,0),&desc_statfmt)),', ',strip(put(coalesce(r_base_max,0),&desc_statfmt)));
-            col2=cats(strip(put(coalesce(t_base_min,0),&desc_statfmt)),', ',strip(put(coalesce(t_base_max,0),&desc_statfmt)));
-            col3=cats(strip(put(coalesce(a_base_min,0),&desc_statfmt)),', ',strip(put(coalesce(a_base_max,0),&desc_statfmt))); output;
+            col1=cats(put(coalesce(t_base_min,0),&_descleadfmt),', ',strip(put(coalesce(t_base_max,0),&desc_statfmt)));
+            col2=cats(put(coalesce(r_base_min,0),&_descleadfmt),', ',strip(put(coalesce(r_base_max,0),&desc_statfmt)));
+            col3=cats(put(coalesce(a_base_min,0),&_descleadfmt),', ',strip(put(coalesce(a_base_max,0),&desc_statfmt))); output;
 
             page=1; order=2; index=1; col0="%superq(desc_aval_label)"; col1=''; col2=''; col3=''; output;
             page=1; order=2; index=2; col0='   n';
-            col1=strip(put(coalesce(r_aval_n,0),&desc_nfmt)); col2=strip(put(coalesce(t_aval_n,0),&desc_nfmt)); col3=strip(put(coalesce(a_aval_n,0),&desc_nfmt)); output;
+            col1=cats(put(coalesce(t_aval_n,0),&_descleadfmt),repeat(' ',2)); col2=cats(put(coalesce(r_aval_n,0),&_descleadfmt),repeat(' ',2)); col3=cats(put(coalesce(a_aval_n,0),&_descleadfmt),repeat(' ',2)); output;
             page=1; order=2; index=3; col0='   Mean (SD)';
-            col1=cats(strip(put(coalesce(r_aval_mean,0),&desc_statfmt)),' (',strip(put(coalesce(r_aval_sd,0),&desc_statfmt)),')');
-            col2=cats(strip(put(coalesce(t_aval_mean,0),&desc_statfmt)),' (',strip(put(coalesce(t_aval_sd,0),&desc_statfmt)),')');
-            col3=cats(strip(put(coalesce(a_aval_mean,0),&desc_statfmt)),' (',strip(put(coalesce(a_aval_sd,0),&desc_statfmt)),')'); output;
+            col1=cats(put(coalesce(t_aval_mean,0),&desc_statfmt),' (',strip(put(coalesce(t_aval_sd,0),&desc_statfmt)),')');
+            col2=cats(put(coalesce(r_aval_mean,0),&desc_statfmt),' (',strip(put(coalesce(r_aval_sd,0),&desc_statfmt)),')');
+            col3=cats(put(coalesce(a_aval_mean,0),&desc_statfmt),' (',strip(put(coalesce(a_aval_sd,0),&desc_statfmt)),')'); output;
             page=1; order=2; index=4; col0='   Median';
-            col1=strip(put(coalesce(r_aval_median,0),&desc_statfmt)); col2=strip(put(coalesce(t_aval_median,0),&desc_statfmt)); col3=strip(put(coalesce(a_aval_median,0),&desc_statfmt)); output;
+            col1=put(coalesce(t_aval_median,0),&desc_statfmt); col2=put(coalesce(r_aval_median,0),&desc_statfmt); col3=put(coalesce(a_aval_median,0),&desc_statfmt); output;
             page=1; order=2; index=5; col0='   Min, Max';
-            col1=cats(strip(put(coalesce(r_aval_min,0),&desc_statfmt)),', ',strip(put(coalesce(r_aval_max,0),&desc_statfmt)));
-            col2=cats(strip(put(coalesce(t_aval_min,0),&desc_statfmt)),', ',strip(put(coalesce(t_aval_max,0),&desc_statfmt)));
-            col3=cats(strip(put(coalesce(a_aval_min,0),&desc_statfmt)),', ',strip(put(coalesce(a_aval_max,0),&desc_statfmt))); output;
+            col1=cats(put(coalesce(t_aval_min,0),&_descleadfmt),', ',strip(put(coalesce(t_aval_max,0),&desc_statfmt)));
+            col2=cats(put(coalesce(r_aval_min,0),&_descleadfmt),', ',strip(put(coalesce(r_aval_max,0),&desc_statfmt)));
+            col3=cats(put(coalesce(a_aval_min,0),&_descleadfmt),', ',strip(put(coalesce(a_aval_max,0),&desc_statfmt))); output;
 
             page=1; order=3; index=1; col0="%superq(desc_chg_label)"; col1=''; col2=''; col3=''; output;
             page=1; order=3; index=2; col0='   n';
-            col1=strip(put(coalesce(r_chg_n,0),&desc_nfmt)); col2=strip(put(coalesce(t_chg_n,0),&desc_nfmt)); col3=strip(put(coalesce(a_chg_n,0),&desc_nfmt)); output;
+            col1=cats(put(coalesce(t_chg_n,0),&_descleadfmt),repeat(' ',2)); col2=cats(put(coalesce(r_chg_n,0),&_descleadfmt),repeat(' ',2)); col3=cats(put(coalesce(a_chg_n,0),&_descleadfmt),repeat(' ',2)); output;
             page=1; order=3; index=3; col0='   Mean (SD)';
-            col1=cats(strip(put(coalesce(r_chg_mean,0),&desc_statfmt)),' (',strip(put(coalesce(r_chg_sd,0),&desc_statfmt)),')');
-            col2=cats(strip(put(coalesce(t_chg_mean,0),&desc_statfmt)),' (',strip(put(coalesce(t_chg_sd,0),&desc_statfmt)),')');
-            col3=cats(strip(put(coalesce(a_chg_mean,0),&desc_statfmt)),' (',strip(put(coalesce(a_chg_sd,0),&desc_statfmt)),')'); output;
+            col1=cats(put(coalesce(t_chg_mean,0),&desc_statfmt),' (',strip(put(coalesce(t_chg_sd,0),&desc_statfmt)),')');
+            col2=cats(put(coalesce(r_chg_mean,0),&desc_statfmt),' (',strip(put(coalesce(r_chg_sd,0),&desc_statfmt)),')');
+            col3=cats(put(coalesce(a_chg_mean,0),&desc_statfmt),' (',strip(put(coalesce(a_chg_sd,0),&desc_statfmt)),')'); output;
             page=1; order=3; index=4; col0='   Median';
-            col1=strip(put(coalesce(r_chg_median,0),&desc_statfmt)); col2=strip(put(coalesce(t_chg_median,0),&desc_statfmt)); col3=strip(put(coalesce(a_chg_median,0),&desc_statfmt)); output;
+            col1=put(coalesce(t_chg_median,0),&desc_statfmt); col2=put(coalesce(r_chg_median,0),&desc_statfmt); col3=put(coalesce(a_chg_median,0),&desc_statfmt); output;
             page=1; order=3; index=5; col0='   Min, Max';
-            col1=cats(strip(put(coalesce(r_chg_min,0),&desc_statfmt)),', ',strip(put(coalesce(r_chg_max,0),&desc_statfmt)));
-            col2=cats(strip(put(coalesce(t_chg_min,0),&desc_statfmt)),', ',strip(put(coalesce(t_chg_max,0),&desc_statfmt)));
-            col3=cats(strip(put(coalesce(a_chg_min,0),&desc_statfmt)),', ',strip(put(coalesce(a_chg_max,0),&desc_statfmt))); output;
+            col1=cats(put(coalesce(t_chg_min,0),&_descleadfmt),', ',strip(put(coalesce(t_chg_max,0),&desc_statfmt)));
+            col2=cats(put(coalesce(r_chg_min,0),&_descleadfmt),', ',strip(put(coalesce(r_chg_max,0),&desc_statfmt)));
+            col3=cats(put(coalesce(a_chg_min,0),&_descleadfmt),', ',strip(put(coalesce(a_chg_max,0),&desc_statfmt))); output;
         %end;
 
         page=2; order=10; index=1; col0='Adjusted Estimates (ANCOVA Model)'; col1=''; col2=''; col3=''; output;
