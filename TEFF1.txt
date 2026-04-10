@@ -1,0 +1,82 @@
+Protocol: S-D21-C300                                                                                            Page 1 of 2                                                                             
+                                                                                                                                                                                                        
+13.2.4.1  Mean Change in S/F Ratio from Day 1 to Day 7: mITT Population                                                                                                                                 
+                                                                                                                                                                                                        
+_____________________________________________________________________________________________________________________________                                                                           
+                                                                                                                                                                                                        
+                                                AON-D21                   Placebo                   Total                                                                                               
+                                                (N=3)                     (N=2)                     (N=5)                                                                                               
+_____________________________________________________________________________________________________________________________                                                                           
+                                                                                                                                                                                                        
+S/F Ratio at Baseline                                                                                                                                                                                   
+  n                                              xx                        xx                       xx                                                                                                  
+  Mean (SD)                                      xx (xx.x)                 xx (xx.x)                xx (xx.x)                                                                                           
+  Median                                         xx.x                      xx.x                     xx.x                                                                                                
+  Min, Max                                       xx, xx                    xx, xx                   xx, xx                                                                                              
+                                                                                                                                                                                                        
+S/F Ratio at Day 7                                                                                                                                                                                      
+  n                                              xx                        xx                       xx                                                                                                  
+  Mean (SD)                                      xx (xx.x)                 xx (xx.x)                xx (xx.x)                                                                                           
+  Median                                         xx.x                      xx.x                     xx.x                                                                                                
+  Min, Max                                       xx, xx                    xx, xx                   xx, xx                                                                                              
+                                                                                                                                                                                                        
+Change from Baseline to Day 7                                                                                                                                                                           
+  n                                              xx                        xx                       xx                                                                                                  
+  Mean (SD)                                      xx (xx.x)                 xx (xx.x)                xx (xx.x)                                                                                           
+  Median                                         xx.x                      xx.x                     xx.x                                                                                                
+  Min, Max                                       xx, xx                    xx, xx                   xx, xx                                                                                              
+                                                                                                                                                                                                        
+_____________________________________________________________________________________________________________________________                                                                           
+Generated on 24MAR2026 (16:03) by S:\Q_166\Q_04354\S-D21-C300_Mocks\Prog_Stat\Development\Code\TLF\T_SF_MOCK.sas                                                                                        
+                                                                                                                                                                                                        
+mITT: Modified Intent-to-Treat; S/F: SpO2/FiO2; n: Count of participants; SD: Standard Deviation; Min: Minimum; Max: Maximum;                                                                           
+ANCOVA: Analysis of Covariance; LS Mean: Least Square Mean; SE: Standard Error; 95% CI: two-sided 95% Confidence Interval;                                                                              
+p-value: Descriptive p-value; HFO: High Flow Oxygen; NIV: Non-Invasive Ventilation; IMV: Invasive Mechanical Ventilation;                                                                               
+ECMO: Extracorporeal Membrane Oxygenation                                                                                                                                                               
+Higher S/F ratio indicates better oxygenation; therefore, a positive change from baseline reflects improvement.                                                                                         
+ANCOVA model is adjusted for randomisation stratification variables: age (<65, >=65 years), baseline respiratory support                                                                                
+category (HFO / NIV, IMV, ECMO) and baseline vasopressor use (yes/no)                                                                                                                                   
+LS means are least squares means, estimated from the statistical model and adjusted for other variables included in the                                                                                 
+model.                                                                                                                                                                                                  
+                                                                                                                                                                                                        
+Protocol: S-D21-C300                                                                                            Page 2 of 2                                                                            
+                                                                                                                                                                                                        
+13.2.4.1  Mean Change in S/F Ratio from Day 1 to Day 7: mITT Population                                                                                                                                 
+                                                                                                                                                                                                        
+_____________________________________________________________________________________________________________________________                                                                           
+                                                                                                                                                                                                        
+                                                AON-D21                   Placebo                   Total                                                                                               
+                                                (N=3)                     (N=2)                     (N=5)                                                                                               
+_____________________________________________________________________________________________________________________________                                                                           
+                                                                                                                                                                                                        
+Adjusted Estimates (ANCOVA Model)                                                                                                                                                                       
+   LS Mean (SE)                                  xx.xx (xx.x)              xx.xx (xx.x)                                                                                                                 
+   95% CI                                        (xx.xx, xx.xx)            (xx.xx, xx.xx)                                                                                                                             
+                                                                                                                                                                                                        
+LS Mean Difference                                                                                                                                                                                      
+   'Active - Placebo' (SE)                       xx.xx (xx.x)                                                                                                                                           
+   95% CI                                        (xx.xx, xx.xx)                                                                                                                                         
+   p-value                                       x.xxx                                                                                                                                                  
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+_____________________________________________________________________________________________________________________________                                                                           
+Generated on 24MAR2026 (16:03) by S:\Q_166\Q_04354\S-D21-C300_Mocks\Prog_Stat\Development\Code\TLF\T_SF_MOCK.sas                                                                                        
+                                                                                                                                                                                                        
+mITT: Modified Intent-to-Treat; S/F: SpO2/FiO2; n: Count of participants; SD: Standard Deviation; Min: Minimum; Max: Maximum;                                                                           
+ANCOVA: Analysis of Covariance; LS Mean: Least Square Mean; SE: Standard Error; 95% CI: two-sided 95% Confidence Interval;                                                                              
+p-value: Descriptive p-value; HFO: High Flow Oxygen; NIV: Non-Invasive Ventilation; IMV: Invasive Mechanical Ventilation;                                                                               
+ECMO: Extracorporeal Membrane Oxygenation                                                                                                                                                               
+Higher S/F ratio indicates better oxygenation; therefore, a positive change from baseline reflects improvement.                                                                                         
+ANCOVA model is adjusted for randomisation stratification variables: age (<65, >=65 years), baseline respiratory support                                                                                
+category (HFO / NIV, IMV, ECMO) and baseline vasopressor use (yes/no)                                                                                                                                   
+LS means are least squares means, estimated from the statistical model and adjusted for other variables included in the                                                                                 
+model.                                                                                                                                                                                                  
+                                                                                                                                                                                                        
