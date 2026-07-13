@@ -1,0 +1,23 @@
+{
+  "_captured_at": "2026-07-13T03:10:18.310286+00:00",
+  "_captured_run_id": "r_230b04e4c1d44dba9c3de673ccdac4a9",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Wrote work.ars_binary_long (12 rows, 12 columns).",
+    "NOTE: Wrote work.page_binary (6 rows, 6 columns).",
+    "NOTE: PROC PRINT completed: 6 observations printed, 6 variables"
+  ],
+  "log_does_not_contain": [
+    "ERROR:",
+    "[JENNER-ERROR"
+  ],
+  "output_contains": [
+    "Odds Ratio (AON-D21 vs Placebo)",
+    "Received Newly Initiated RRT"
+  ],
+  "diagnostics": {
+    "parse_warnings": [],
+    "runtime_warnings": []
+  }
+}

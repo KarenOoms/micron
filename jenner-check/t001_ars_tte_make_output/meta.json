@@ -1,0 +1,7 @@
+{
+  "bundle": "t001_ars_tte_make_output",
+  "source_file": "ars_tte_make_output.sas",
+  "source_blob_sha": "d18e21e99aeacdbee9758e57dbb763e82b188fa1",
+  "source_commit": "6551d3019975f71db15b55a1fa23ba591aa6fc52",
+  "notes": "%ars_tte_make_output copied verbatim; reshapes an ARS-normalized Cox PH + Kaplan-Meier long dataset into report-ready col0/col1/col2 rows (descriptives, cumulative incidence, censored counts, KM median 95% CI, Cox HR 95% CI + p-value). Mock ARS long input built from the exact operation IDs the README documents (OP_TTE_DESC/OP_TTE_KM_CINC/OP_TTE_CENSOR/OP_TTE_KM_MEDIAN/OP_TTE_COX_HR); no external libname."
+}
