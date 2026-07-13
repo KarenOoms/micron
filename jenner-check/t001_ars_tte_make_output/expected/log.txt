@@ -1,0 +1,64 @@
+NOTE: Option OBS changed to 100.
+NOTE: Option LS changed to 125.
+NOTE: Option PS changed to 43.
+NOTE: DATA work.ars_tte_long
+
+NOTE: Processing inline DATALINES (28 lines)
+
+NOTE: Read 28 rows from DATALINES.
+NOTE: Wrote work.ars_tte_long (28 rows, 10 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA _tte_src
+
+
+NOTE: Read 28 rows from work.ars_tte_long.
+NOTE: Wrote _tte_src (28 rows, 10 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC SQL 
+
+NOTE: Macro variable _SRC_N = 28
+NOTE: PROC SQL statement used.
+NOTE: PROC SQL 
+
+NOTE: Table _desc created.
+NOTE: Table _cinc created.
+NOTE: Table _cens created.
+NOTE: Table _med created.
+NOTE: Table _hr created.
+NOTE: Table _test created.
+NOTE: Table _ref created.
+NOTE: Table _one created.
+NOTE: PROC SQL statement used.
+NOTE: DATA work.page_tte
+
+
+NOTE: Read 1 rows from _one.
+NOTE: Wrote work.page_tte (11 rows, 6 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC SORT data=work.page_tte
+
+NOTE: Read 11 rows from work.page_tte.
+NOTE: Wrote work.page_tte (11 rows, 6 columns).
+NOTE: PROC SORT statement used.
+NOTE: PROC DATASETS library=WORK
+
+NOTE: Deleting _TTE_SRC (memtype=DATA).
+NOTE: Deleting _DESC (memtype=DATA).
+NOTE: Deleting _CINC (memtype=DATA).
+NOTE: Deleting _CENS (memtype=DATA).
+NOTE: Deleting _MED (memtype=DATA).
+NOTE: Deleting _HR (memtype=DATA).
+NOTE: Deleting _TEST (memtype=DATA).
+NOTE: Deleting _REF (memtype=DATA).
+NOTE: Deleting _ONE (memtype=DATA).
+NOTE: 9 dataset(s) deleted.
+NOTE: Option TITLE changed to ARS time-to-event report rows (col0/col1/col2).
+NOTE: PROC PRINT data=work.page_tte
+
+NOTE: PROC PRINT completed: 11 observations printed, 6 variables

@@ -1,0 +1,7 @@
+{
+  "bundle": "t002_ars_binary_make_output",
+  "source_file": "ars_binary_make_output.sas",
+  "source_blob_sha": "62207cc5882a73e8c1f903af2ee393c3a6ab9d49",
+  "source_commit": "6551d3019975f71db15b55a1fa23ba591aa6fc52",
+  "notes": "%ars_binary_make_output copied verbatim; reshapes an ARS-normalized Fisher's-exact long dataset into report-ready col0/col1/col2 rows (event/non-event N with %, odds ratio, 95% CI, Fisher p-value). Mock ARS long input built from the operation IDs %ars_binary_production_analysis emits (OP_BIN_COUNT_PCT/OP_BIN_OR); no external libname."
+}

@@ -1,0 +1,11 @@
+ARS binary endpoint report rows (col0/col1/col2)                                       
+
+
+page  order  index                                               col0            col1        col2
+----  -----  -----  -------------------------------------------------  --------------  ----------
+   1      1      1  Number of Participants up to and including Day 28
+   1      1      2  Received Newly Initiated RRT                       6 (10.0%)       15 (25.9%)
+   1      1      3  Did not Receive Newly Initiated RRT                54 (90.0%)      43 (74.1%)
+   1      2      1  Odds Ratio (AON-D21 vs Placebo)                    0.318
+   1      2      2  95% CI                                             (0.114, 0.889)
+   1      2      3  p-value                                            0.0284
